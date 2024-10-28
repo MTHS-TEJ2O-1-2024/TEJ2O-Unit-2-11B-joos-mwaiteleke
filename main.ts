@@ -5,41 +5,34 @@
  * This program compares two random numbers
 */
 
-let numberone = randint (0, 99)
+let numberone = randint(0, 99)
 let numbertwo = randint(0, 99)
 
 basic.showIcon(IconNames.Happy)
 
-//Shows random number one
-input.onButtonPressed(Button.A, function() {
+// Shows random number one
+input.onButtonPressed(Button.A, function () {
     basic.clearScreen()
-    basic.showString('#1:')
-    basic.showNumber(numberone)
+    basic.showString("#1: " + numberone)
     basic.showIcon(IconNames.Happy)
 })
 
-//Shows random number two
+// Shows random number two
 input.onButtonPressed(Button.B, function () {
     basic.clearScreen()
-    basic.showString('#2:')
-    basic.showNumber(numbertwo)
+    basic.showString("#2: " + numbertwo)
     basic.showIcon(IconNames.Happy)
 })
 
-input.onGesture(Gesture.Shake, function() {
-    //checks if number one is greater than number two
-    if (numberone>numbertwo) {
-        basic.clearScreen()
-        //shows that number one is greater than number two
-        basic.showNumber(numberone)
-        basic.showString('>')
-        basic.showNumber(numbertwo)
-        basic.showIcon(IconNames.Sad)
-    } else{
-        basic.clearScreen()
-        //shows that number two is greater than number one
-        basic.showNumber(numberone)
-        basic.showString('<')
-        basic.showNumber(numbertwo)
-        basic.showIcon(IconNames.Sad)
-}})
+// Checks which number is greater when shaken
+input.onGesture(Gesture.Shake, function () {
+    basic.clearScreen()
+    if (numberone > numbertwo) {
+        basic.showString("" + numberone + " > " + numbertwo)
+    } else if (numberone < numbertwo) {
+        basic.showString("" + numberone + " < " + numbertwo)
+    } else {
+        basic.showString("" + numberone + " = " + numbertwo)
+    }
+    basic.showIcon(IconNames.Sad)
+})
