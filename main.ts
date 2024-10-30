@@ -1,11 +1,11 @@
-/* Copyright (c) 2020 MTHS All rights reserved
+ /* Copyright (c) 2020 MTHS All rights reserved
  *
  * Created by: Joos
  * Created on: Oct 2024
  * This program compares two random numbers
 */
-
-let numberone = randint(0, 99)
+//Created variables
+let numberone = randint (0, 99)
 let numbertwo = randint(0, 99)
 
 basic.showIcon(IconNames.Happy)
@@ -24,15 +24,19 @@ input.onButtonPressed(Button.B, function () {
     basic.showIcon(IconNames.Happy)
 })
 
-// Checks which number is greater when shaken
-input.onGesture(Gesture.Shake, function () {
-    basic.clearScreen()
-    if (numberone > numbertwo) {
-        basic.showString("" + numberone + " > " + numbertwo)
-    } else if (numberone < numbertwo) {
-        basic.showString("" + numberone + " < " + numbertwo)
-    } else {
-        basic.showString("" + numberone + " = " + numbertwo)
-    }
-    basic.showIcon(IconNames.Sad)
-})
+input.onGesture(Gesture.Shake, function() {
+
+    //checks if number one is greater than number two
+    if (numberone>numbertwo) {
+        basic.clearScreen()
+
+        //shows that number one is greater than number two
+        basic.showString(numberone + ">" + numbertwo)
+        basic.showIcon(IconNames.Sad)
+    } else{
+        basic.clearScreen()
+        
+        //shows that number two is greater than number one
+        basic.showString(numberone + "<" + numbertwo)
+        basic.showIcon(IconNames.Sad)
+}})
